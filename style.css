@@ -40,7 +40,21 @@ main{
     grid-column: inizioCol / listaChat;
     grid-row: barraFunzionale / fineRow;
     background-color: white;
+    overflow: auto;
 }
+.singoloContatto{
+    display: flex;
+    height: 7em;
+    align-items: center;
+    gap: 1em;
+    padding-left: 1em;
+}
+.singoloContatto img{
+    border-radius: 50%;
+    height: 5em;
+}
+/* LISTA CON TUTTE LE CHAT */
+
 /* BARRA CHE CONTIENE LE INFORMAZIONI DEL DESTINATAIO */
 #barraDestinatario{
     grid-column: listaChat / fineCol;
@@ -55,12 +69,6 @@ main{
     display: grid;
     padding: 3em 6em 1em 6em;
     grid-template-columns: [iMD] calc(50% - 4.5em) [fMD] 9em [iMM] calc(50% - 4.5em) [fMM];
-}
-/* BARRA CHE CONTIENE INPUT PER INVIARE IL MESSAGGIO NELLA CHAT */
-#barraMessaggio{
-    grid-column: listaChat / fineCol;
-    grid-row: barraMessaggio / fineRow;
-    background-color: green;
 }
 /* CSS CHE SI OCCUPA DI TUTTE QUELLE CARATTERISTICHE IN COMUNE TRA I MESSAGGI, SIA QUELLI CHE INVIAMO, SIA QUELLI CHE RICEVIAMO */
 .messaggio{
@@ -88,5 +96,13 @@ main{
     left: 13.5em;
     top: 1em;
     font-size: small;
+}
+/* AREA CHE CONTIENE I MESSAGGI SCAMBIATI CON IL DESTINATARIO, LE CUI IMMAGINI SONO NELLA BARRA SOPRA */
+
+/* BARRA CHE CONTIENE INPUT PER INVIARE IL MESSAGGIO NELLA CHAT */
+#barraMessaggio{
+    grid-column: listaChat / fineCol;
+    grid-row: barraMessaggio / fineRow;
+    background-color: green;
 }
 /* CSS PER IL MAIN E A TUTTO QUELLO CHE CONTIENE */

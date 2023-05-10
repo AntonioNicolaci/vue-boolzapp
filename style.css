@@ -69,6 +69,7 @@ main{
     display: grid;
     padding: 3em 6em 1em 6em;
     grid-template-columns: [iMD] calc(50% - 4.5em) [fMD] 9em [iMM] calc(50% - 4.5em) [fMM];
+    overflow: auto;
 }
 /* CSS CHE SI OCCUPA DI TUTTE QUELLE CARATTERISTICHE IN COMUNE TRA I MESSAGGI, SIA QUELLI CHE INVIAMO, SIA QUELLI CHE RICEVIAMO */
 .messaggio{

@@ -6,10 +6,18 @@
 main{
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(rgb(221, 219, 209), rgb(210, 219, 220));;
+    background: linear-gradient(rgb(221, 219, 209), rgb(210, 219, 220));
+    display: grid;
+    grid-template-columns: [col1] 5% [col2] 90% [col3] 5% [col4];
+    grid-template-rows: [row1] 1em [row2] auto [row3] 1em [row4];
 }
 #barraVerde{
     background-color: rgb(0, 150, 136);
-    width: 100%;
+    grid-column: col1 / col4 ;
     height: 5em;
+}
+#app{
+    grid-column: col2 / col3;
+    grid-row: row2 / row3;
+
 }

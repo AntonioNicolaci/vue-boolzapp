@@ -19,5 +19,7 @@ main{
 #app{
     grid-column: col2 / col3;
     grid-row: row2 / row3;
-
+    display: grid;
+    grid-template-columns: [inizioCol] 35% [Chats] 65% [fineCol];
+    grid-template-rows: [inizioRow] 3em [barraFunzionale] auto [barraMessaggio] 3em [fineRow];
 }

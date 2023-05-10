@@ -326,9 +326,15 @@ const boolZappApp = Vue.createApp({
                 }
             ],
             chatAttiva: 0,
+            newMessage: '',
         }
     },
     methods: {
-
+        addMessage(){
+            if(this.newMessage != ""){
+                this.contacts[this.chatAttiva].messages.push({"date": Date(), "message": this.newMessage, "status": 'sent'});
+                this.newMessage = "";
+            }
+        }
     },
 }).mount("#app")

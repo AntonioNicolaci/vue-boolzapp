@@ -325,6 +325,7 @@ const boolZappApp = Vue.createApp({
                     ],
                 }
             ],
+            chatAttiva: 0,
         }
     },
     methods: {

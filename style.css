@@ -1,25 +1,92 @@
+/* CSS COMUNE O COMPONENTI NON SPECIFICI */
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
+/* CSS COMUNE O COMPONENTI NON SPECIFICI */
+
+/* CSS PER IL MAIN E A TUTTO QUELLO CHE CONTIENE */
 main{
     width: 100vw;
     height: 100vh;
     background: linear-gradient(rgb(221, 219, 209), rgb(210, 219, 220));
     display: grid;
     grid-template-columns: [col1] 5% [col2] 90% [col3] 5% [col4];
-    grid-template-rows: [row1] 1em [row2] auto [row3] 1em [row4];
+    grid-template-rows: [row1] 1em [row2] calc(100% - 2em) [row3] 1em [row4];
 }
 #barraVerde{
     background-color: rgb(0, 150, 136);
     grid-column: col1 / col4 ;
     height: 5em;
 }
+/* CSS CHE SI OCCUPA DELL'APP DI VUE */
 #app{
     grid-column: col2 / col3;
     grid-row: row2 / row3;
     display: grid;
-    grid-template-columns: [inizioCol] 35% [Chats] 65% [fineCol];
-    grid-template-rows: [inizioRow] 3em [barraFunzionale] auto [barraMessaggio] 3em [fineRow];
+    grid-template-columns: [inizioCol] 35% [listaChat] 65% [fineCol];
+    grid-template-rows: [inizioRow] 3em [barraFunzionale] calc(100% - 6em) [barraMessaggio] 3em [fineRow];
+    background-color: red;
 }
+/* BARRA CHE CONTIENE TUTTE LE INFORMAZIONI DELL'UTENTE */
+#barraUtente{
+    grid-column: inizioCol / listaChat;
+    grid-row: inizioRow / barraFunzionale;
+    background-color: black;
+}
+/* LISTA CON TUTTE LE CHAT */
+#listaChat{
+    grid-column: inizioCol / listaChat;
+    grid-row: barraFunzionale / fineRow;
+    background-color: white;
+}
+/* BARRA CHE CONTIENE LE INFORMAZIONI DEL DESTINATAIO */
+#barraDestinatario{
+    grid-column: listaChat / fineCol;
+    grid-row: inizioRow / barraFunzionale;
+    background-color: yellow;
+}
+/* AREA CHE CONTIENE I MESSAGGI SCAMBIATI CON IL DESTINATARIO, LE CUI IMMAGINI SONO NELLA BARRA SOPRA */
+#chatAttuale{
+    grid-column: listaChat / fineCol;
+    grid-row: barraFunzionale / barraMessaggio;
+    background: url('img/mine.jpg');
+    display: grid;
+    padding: 3em 6em 1em 6em;
+    grid-template-columns: [iMD] calc(50% - 4.5em) [fMD] 9em [iMM] calc(50% - 4.5em) [fMM];
+}
+/* BARRA CHE CONTIENE INPUT PER INVIARE IL MESSAGGIO NELLA CHAT */
+#barraMessaggio{
+    grid-column: listaChat / fineCol;
+    grid-row: barraMessaggio / fineRow;
+    background-color: green;
+}
+/* CSS CHE SI OCCUPA DI TUTTE QUELLE CARATTERISTICHE IN COMUNE TRA I MESSAGGI, SIA QUELLI CHE INVIAMO, SIA QUELLI CHE RICEVIAMO */
+.messaggio{
+    border-radius: .50rem;
+    width: 100%;
+    height: 3.5em;
+    margin-bottom: .5em;
+    display: flex;
+    align-items: center;
+    padding-left: 1em;
+}
+/* CSS CHE SI OCCUPA DEI MESSAGGI CHE INVIAMO */
+.messaggioMittente{
+    background-color: rgb(213, 249, 186);
+    grid-column: iMM / fMM;
+}
+/* CSS CHE SI OCCUMA DEI MESSAGGI CHE RICEVIAMO */
+.messaggioDestinataio{
+    background-color: rgb(255, 255, 255);
+    grid-column: iMD / fMD ;
+}
+/* CSS CHE SI OCCUPA DELL'ORA CHE SI TROVA A LATO DEI MESSAGGI  */
+.messOra{
+    position: relative;
+    left: 13.5em;
+    top: 1em;
+    font-size: small;
+}
+/* CSS PER IL MAIN E A TUTTO QUELLO CHE CONTIENE */

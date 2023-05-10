@@ -14,7 +14,7 @@
         <div id="app">
             <div id="barraUtente"></div>
             <div id="listaChat">
-                <template v-for="(contact, index) in contacts">
+                <template v-for="contact in contacts">
                     <div class="singoloContatto">
                         <img :src="`${contact.avatar}`" :alt="`${contact.name}`" class="divImg">
                         <div>
@@ -25,9 +25,9 @@
             </div>
             <div id="barraDestinatario"></div>
             <div id="chatAttuale">
-                <div class="messaggio messaggioDestinataio">Messaggio 1</div>
-                <div class="messaggio messaggioMittente">Messaggio 2</div>
-                <div class="messaggio messaggioDestinataio">Messaggio 3</div>
+                <template v-for="mess in contacts[chatAttiva].messages" >
+                    <div :class="['messaggio', mess.status == 'received' ? 'messaggioDestinataio' : 'messaggioMittente']">{{mess.message}}</div>    
+                </template>
             </div>
             <div id="barraMessaggio"></div>
         </div>    

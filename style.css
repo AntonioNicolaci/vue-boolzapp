@@ -12,7 +12,7 @@ main{
     height: 100vh;
     background: linear-gradient(rgb(221, 219, 209), rgb(210, 219, 220));
     display: grid;
-    grid-template-columns: [col1] 5% [col2] 90% [col3] 5% [col4];
+    grid-template-columns: [col1] 10% [col2] 80% [col3] 10% [col4];
     grid-template-rows: [row1] 1em [row2] calc(100% - 2em) [row3] 1em [row4];
 }
 #barraVerde{
@@ -27,7 +27,6 @@ main{
     display: grid;
     grid-template-columns: [inizioCol] 35% [listaChat] 65% [fineCol];
     grid-template-rows: [inizioRow] 4em [barraFunzionale] calc(100% - 8em) [barraMessaggio] 4em [fineRow];
-    background-color: red;
 }
 /* BARRA CHE CONTIENE TUTTE LE INFORMAZIONI DELL'UTENTE */
 #barraUtente{
@@ -41,6 +40,9 @@ main{
     grid-row: barraFunzionale / fineRow;
     background-color: white;
     overflow: auto;
+}
+#listaChat #active{
+    background-color: rgb(233, 235, 235);
 }
 .singoloContatto{
     display: flex;

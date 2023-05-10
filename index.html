@@ -29,7 +29,14 @@
                     <div :class="['messaggio', mess.status == 'received' ? 'messaggioDestinataio' : 'messaggioMittente']">{{mess.message}}</div>    
                 </template>
             </div>
-            <div id="barraMessaggio"></div>
+            <div id="barraMessaggio">
+                <i class="bi bi-emoji-laughing"></i>
+                <input type="text"
+                        placeholder="Scrivi un messaggio"
+                        @keyup.enter="addMessage()"
+                        v-model="newMessage">
+                <i class="bi bi-mic-fill"></i>
+            </div>
         </div>    
     </main>
     

@@ -5,6 +5,12 @@
     box-sizing: border-box;
     font-family: sans-serif
 }
+#barraUtente i, #barraDestinatario i{
+    font-size: 1.5em;
+    font-weight: bold;
+    padding-inline: .25em;
+    color: rgb(100, 100, 100);
+}
 /* CSS COMUNE O COMPONENTI NON SPECIFICI */
 
 /* CSS PER IL MAIN E A TUTTO QUELLO CHE CONTIENE */
@@ -47,10 +53,6 @@ main{
     margin-left: .5em;
     display: flex;
     align-items: center;
-}
-#barraUtente i {
-    font-size: 1.5em;
-    color: rgb(100, 100, 100);
 }
 /* BARRA CHE CONTIENE TUTTE LE INFORMAZIONI DELL'UTENTE */
 
@@ -147,6 +149,26 @@ main{
     grid-column: listaChat / fineCol;
     grid-row: inizioRow / barraFunzionale;
     background-color: rgb(234, 234, 234);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#barraDestinatario > :first-child{
+    display: flex;
+    align-items: center;
+    padding-left: .8em;
+}
+#barraDestinatario > :first-child > :last-child{
+    display: flex;
+    flex-direction: column;
+    margin-left: .5em;
+}
+#barraDestinatario > :first-child > :last-child >:first-child{
+    font-weight: bold;
+}
+#barraDestinatario > :first-child > :last-child >:last-child{
+    color: rgb(100, 100, 100);
+    font-size: .85em;
 }
 /* AREA CHE CONTIENE I MESSAGGI SCAMBIATI CON IL DESTINATARIO, LE CUI IMMAGINI SONO NELLA BARRA SOPRA */
 #chatAttuale{

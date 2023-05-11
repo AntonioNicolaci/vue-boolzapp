@@ -64,7 +64,20 @@
                     </template>
                 </div>
             </div>
-            <div id="barraDestinatario"></div>
+            <div id="barraDestinatario">
+                <div>
+                    <img :src="`${contacts[chatAttiva].avatar}`" :alt="`${contacts[chatAttiva].name}`">
+                    <div>
+                        <span>{{contacts[chatAttiva].name}}</span>
+                        <span>Ultimo accesso Orario</span>
+                    </div>    
+                </div>
+                <div>
+                    <i class="bi bi-search"></i>
+                    <i class="bi bi-paperclip"></i>
+                    <i class="bi bi-three-dots-vertical"></i>
+                </div>
+            </div>
             <div id="chatAttuale" v-if="ricercaContatto === ''">
                 <template
                 v-for="mess in contacts[chatAttiva].messages"

@@ -12,18 +12,39 @@
     <main>
         <div id="barraVerde"></div>
         <div id="app">
-            <div id="barraUtente"></div>
+            <div id="barraUtente">
+                <div>
+                    <img src="img/avatar_io.jpg" alt="avater_io">    
+                </div>
+                <div>
+                    <i class="bi bi-arrow-clockwise"></i>
+                    <i class="bi bi-list"></i>
+                    <i class="bi bi-three-dots-vertical"></i>
+                </div>
+            </div>
             <div id="listaChat">
-                <template
-                v-for="(contact, index) in contacts"
-                :key="contact.name">
-                    <div :id="[chatAttiva == index ? 'active' : '']" class="singoloContatto" @click="chatAttiva = index">
-                        <img :src="`${contact.avatar}`" :alt="`${contact.name}`" class="divImg">
-                        <div>
-                            {{contact.name}}
-                        </div> 
+                <div id="attivaNotifica">
+                    <div>
+                        <i class="bi bi-bell-slash-fill"></i>
                     </div>
-                </template>
+                    <div>
+                        <span>Ricevi notifiche di nuovi messaggi</span>
+                        <span>Attiva notifiche desktop</span>
+                    </div>
+                </div>
+                <div id="barraRirerca"></div>
+                <div>
+                    <template
+                    v-for="(contact, index) in contacts"
+                    :key="contact.name">
+                        <div :id="[chatAttiva == index ? 'active' : '']" class="singoloContatto" @click="chatAttiva = index">
+                            <img :src="`${contact.avatar}`" :alt="`${contact.name}`" class="divImg">
+                            <div>
+                                {{contact.name}}
+                            </div> 
+                        </div>
+                    </template>    
+                </div>
             </div>
             <div id="barraDestinatario"></div>
             <div id="chatAttuale">

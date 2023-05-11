@@ -167,6 +167,7 @@ const boolZappApp = Vue.createApp({
             chatAttiva: 0,
             newMessage: '',
             ricercaContatto: '',
+            arrRicerca: [],
         }
     },
     methods: {
@@ -180,14 +181,28 @@ const boolZappApp = Vue.createApp({
             }
         },
     },
+    watch: {
+        ricercaContatto: function(){
+            this.arrRicerca = [];
+            let nome2 = [];
+            let y = 0;
+            let nome3 = "";
+            if (this.ricercaContatto.match(/[a-zA-Zà-úÀ-Ú0-9]/)) {
+                for (let index = 0; index < this.contacts.length; index++) {
+                    nome2[index] = this.contacts[index].name.toLowerCase().split("");
+                }
+                for (let index2 = 0; index2 < nome2.length; index2++) {
+                    for (let i = 0; i < this.ricercaContatto.length; i++) {
+                        nome3 += nome2[index2][i];
+                    }
+                    if(nome3 == this.ricercaContatto){
+                        this.arrRicerca[y] = this.contacts[index2];
+                        y++;
+                    }
+                    nome3 = '';  
+                }
+            }
+            return this.arrRicerca;
+        },
+    },
 }).mount("#app")
-
-/*
-IDEA PER MILESTONE 4:
-PRENDI CONTACTS.NAME, LA DIVIDI E COMPARI V-MODEL="ricercaContact" CON OGNI SINGOLA LETTERA DEI NOMI.
-FOREACH()
-
-
-
-
-*/

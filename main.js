@@ -166,6 +166,7 @@ const boolZappApp = Vue.createApp({
             ],
             chatAttiva: 0,
             newMessage: '',
+            ricercaContatto: '',
         }
     },
     methods: {
@@ -180,3 +181,13 @@ const boolZappApp = Vue.createApp({
         },
     },
 }).mount("#app")
+
+/*
+IDEA PER MILESTONE 4:
+PRENDI CONTACTS.NAME, LA DIVIDI E COMPARI V-MODEL="ricercaContact" CON OGNI SINGOLA LETTERA DEI NOMI.
+FOREACH()
+
+
+
+
+*/

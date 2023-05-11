@@ -43,9 +43,11 @@ main{
     align-items: center;
     justify-content: space-between;
 }
-/* #barraUtente:only-child{
-    padding-inline: 1em;
-} */
+#barraUtente > :first-child{
+    margin-left: .5em;
+    display: flex;
+    align-items: center;
+}
 #barraUtente i {
     font-size: 1.5em;
     color: rgb(100, 100, 100);

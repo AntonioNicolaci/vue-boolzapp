@@ -32,7 +32,12 @@
                         <span>Attiva notifiche desktop</span>
                     </div>
                 </div>
-                <div id="barraRirerca"></div>
+                <div id="barraRicerca">
+                    <label for="ricercaContatto">
+                        <i class="bi bi-search"></i>
+                        <input type="text" v-model="ricercaContatto" placeholder="Cerca o inizia una nuova chat" name="ricercaContatto">
+                    </label>
+                </div>
                 <div>
                     <template
                     v-for="(contact, index) in contacts"
@@ -40,7 +45,7 @@
                         <div :id="[chatAttiva == index ? 'active' : '']" class="singoloContatto" @click="chatAttiva = index">
                             <img :src="`${contact.avatar}`" :alt="`${contact.name}`" class="divImg">
                             <div>
-                                {{contact.name}}
+                                <span>{{contact.name}}</span>
                             </div> 
                         </div>
                     </template>    

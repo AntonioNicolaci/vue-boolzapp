@@ -26,34 +26,92 @@ main{
     grid-row: row2 / row3;
     display: grid;
     grid-template-columns: [inizioCol] 35% [listaChat] 65% [fineCol];
-    grid-template-rows: [inizioRow] 4em [barraFunzionale] calc(100% - 8em) [barraMessaggio] 4em [fineRow];
+    grid-template-rows: [inizioRow] 5em [barraFunzionale] calc(100% - 9em) [barraMessaggio] 4em [fineRow];
+}
+#app img{
+    border-radius: 50%;
+    height: 4em;
 }
 /* BARRA CHE CONTIENE TUTTE LE INFORMAZIONI DELL'UTENTE */
 #barraUtente{
     grid-column: inizioCol / listaChat;
     grid-row: inizioRow / barraFunzionale;
-    background-color: black;
+    background-color: rgb(234, 234, 234);
+    border-right: 1px solid rgb(214, 214, 214);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
+/* #barraUtente:only-child{
+    padding-inline: 1em;
+} */
+#barraUtente i {
+    font-size: 1.5em;
+    color: rgb(100, 100, 100);
+}
+/* BARRA CHE CONTIENE TUTTE LE INFORMAZIONI DELL'UTENTE */
+
 /* LISTA CON TUTTE LE CHAT */
 #listaChat{
     grid-column: inizioCol / listaChat;
     grid-row: barraFunzionale / fineRow;
     background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+#listaChat > :last-child{
     overflow: auto;
 }
+/* CSS CHE SI OCCUPA DELLA BARRA PER ATTIVARE LA NOTIFICA */
+#attivaNotifica{
+    background-color: rgb(142, 218, 252);
+    display: flex;
+    align-items: center;
+} 
+/* SI OCCUPA DEL'ICONA CIRCOLARE CON LA CAMPANA DENTRO */
+#attivaNotifica > :first-child{
+    padding: 1em;
+    margin: 1em .5em 1em 1em;
+    border-radius: 50%;
+    font-size: 1.1em;
+    background-color: rgb(242, 252, 255);
+    color: rgb(142, 218, 252);
+}
+#attivaNotifica > :last-child{
+    display: flex;
+    flex-direction: column;
+}
+#attivaNotifica > :last-child > :first-child{
+    font-weight: bold;
+}
+#attivaNotifica > :last-child > :last-child{
+    text-decoration-line: underline;
+    color: rgb(100, 100, 100);
+}
+/* CSS CHE SI OCCUPA DELLA BARRA PER ATTIVARE LA NOTIFICA */
+
+/*  */
+#barraRirerca{
+    background-color: rgb(250, 250, 250);
+}
+/*  */
 #listaChat #active{
     background-color: rgb(233, 235, 235);
+    border: none;
 }
 .singoloContatto{
     display: flex;
-    height: 7em;
+    height: 5em;
     align-items: center;
     gap: 1em;
     padding-left: 1em;
+    border-block: 1px solid rgb(249, 249, 249);
 }
-.singoloContatto img{
-    border-radius: 50%;
-    height: 5em;
+#listaChat > :last-child > :last-child{
+    border-bottom: none;
+}
+#listaChat > :last-child > :first-child{
+    border-top: none;
 }
 /* LISTA CON TUTTE LE CHAT */
 
@@ -61,7 +119,7 @@ main{
 #barraDestinatario{
     grid-column: listaChat / fineCol;
     grid-row: inizioRow / barraFunzionale;
-    background-color: yellow;
+    background-color: rgb(234, 234, 234);
 }
 /* AREA CHE CONTIENE I MESSAGGI SCAMBIATI CON IL DESTINATARIO, LE CUI IMMAGINI SONO NELLA BARRA SOPRA */
 #chatAttuale{

@@ -114,8 +114,7 @@ main{
     border: 1px solid rgb(249, 249, 249);
 }
 #barraRicerca input{
-    padding-left: 1.5em;
-    padding-block: .5em;
+    padding: .5em;
     flex-grow: 1;
     border: 0;
 }
@@ -205,6 +204,6 @@ main{
     height: 3.5em;
     padding-left: 1em;
     border: none;
-    /* border-radius: .5rem; */
+    border-radius: .5rem;
 }
 /* CSS PER IL MAIN E A TUTTO QUELLO CHE CONTIENE */

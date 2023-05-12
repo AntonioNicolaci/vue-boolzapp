@@ -1,20 +1,28 @@
 /* CSS COMUNE O COMPONENTI NON SPECIFICI */
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: sans-serif
 }
-#barraUtente i, #barraDestinatario i{
+
+#barraUtente i,
+#barraDestinatario i {
     font-size: 1.5em;
     font-weight: bold;
     padding-inline: .25em;
     color: rgb(100, 100, 100);
 }
+
+input:focus-visible {
+    outline: none;
+    box-shadow: 0px 0px 2px black;
+}
+
 /* CSS COMUNE O COMPONENTI NON SPECIFICI */
 
 /* CSS PER IL MAIN E A TUTTO QUELLO CHE CONTIENE */
-main{
+main {
     width: 100vw;
     height: 100vh;
     background: linear-gradient(rgb(221, 219, 209), rgb(210, 219, 220));
@@ -22,25 +30,29 @@ main{
     grid-template-columns: [col1] 10% [col2] 80% [col3] 10% [col4];
     grid-template-rows: [row1] 1em [row2] calc(100% - 2em) [row3] 1em [row4];
 }
-#barraVerde{
+
+#barraVerde {
     background-color: rgb(0, 150, 136);
-    grid-column: col1 / col4 ;
+    grid-column: col1 / col4;
     height: 7em;
 }
+
 /* CSS CHE SI OCCUPA DELL'APP DI VUE */
-#app{
+#app {
     grid-column: col2 / col3;
     grid-row: row2 / row3;
     display: grid;
     grid-template-columns: [inizioCol] 35% [listaChat] 65% [fineCol];
     grid-template-rows: [inizioRow] 5em [barraFunzionale] calc(100% - 9em) [barraMessaggio] 4em [fineRow];
 }
-#app img{
+
+#app img {
     border-radius: 50%;
     height: 4em;
 }
+
 /* BARRA CHE CONTIENE TUTTE LE INFORMAZIONI DELL'UTENTE */
-#barraUtente{
+#barraUtente {
     grid-column: inizioCol / listaChat;
     grid-row: inizioRow / barraFunzionale;
     background-color: rgb(234, 234, 234);
@@ -49,35 +61,41 @@ main{
     align-items: center;
     justify-content: space-between;
 }
-#barraUtente > :first-child{
+
+#barraUtente> :first-child {
     margin-left: .5em;
     display: flex;
     align-items: center;
 }
+
 /* BARRA CHE CONTIENE TUTTE LE INFORMAZIONI DELL'UTENTE */
 
 /* LISTA CON TUTTE LE CHAT */
-#listaChat{
+#listaChat {
     grid-column: inizioCol / listaChat;
     grid-row: barraFunzionale / fineRow;
     background-color: white;
     display: flex;
     flex-direction: column;
 }
-#listaChat > :last-child{
+
+#listaChat> :last-child {
     overflow: auto;
 }
-#listaChat > :last-child span{
+
+#listaChat> :last-child span {
     font-weight: bold;
 }
+
 /* CSS CHE SI OCCUPA DELLA BARRA PER ATTIVARE LA NOTIFICA */
-#attivaNotifica{
+#attivaNotifica {
     background-color: rgb(142, 218, 252);
     display: flex;
     align-items: center;
-} 
+}
+
 /* SI OCCUPA DEL'ICONA CIRCOLARE CON LA CAMPANA DENTRO */
-#attivaNotifica > :first-child{
+#attivaNotifica> :first-child {
     padding: 1em;
     margin: 1em .5em 1em 1em;
     border-radius: 50%;
@@ -85,50 +103,59 @@ main{
     background-color: rgb(242, 252, 255);
     color: rgb(142, 218, 252);
 }
-#attivaNotifica > :last-child{
+
+#attivaNotifica> :last-child {
     display: flex;
     flex-direction: column;
 }
-#attivaNotifica > :last-child > :first-child{
+
+#attivaNotifica> :last-child> :first-child {
     font-weight: bold;
 }
-#attivaNotifica > :last-child > :last-child{
+
+#attivaNotifica> :last-child> :last-child {
     text-decoration-line: underline;
     color: rgb(100, 100, 100);
 }
+
 /* CSS CHE SI OCCUPA DELLA BARRA PER ATTIVARE LA NOTIFICA */
 
 /* CSS CHE SI OCCUPA DELLA BARRA CHE CONTIENE L'INPUT PER LA RICERCA DELLE CHAT */
-#barraRicerca{
+#barraRicerca {
     background-color: rgb(245, 245, 245);
     padding: .4em;
     display: flex;
     align-items: center;
 }
-#barraRicerca label{
+
+#barraRicerca label {
     display: flex;
     align-items: center;
     border: 1px solid rgb(249, 249, 249);
     width: fit-content;
     flex-grow: 1;
 }
-#barraRicerca label i{
+
+#barraRicerca label i {
     padding: calc(.35em - 1px) 2em;
     background-color: #fff;
     border: 1px solid rgb(249, 249, 249);
 }
-#barraRicerca input{
+
+#barraRicerca input {
     padding: .5em;
     flex-grow: 1;
     border: 0;
 }
+
 /* CSS CHE SI OCCUPA DELLA BARRA CHE CONTIENE L'INPUT PER LA RICERCA DELLE CHAT */
 
-#listaChat #active{
+#listaChat #active {
     background-color: rgb(233, 235, 235);
     border: none;
 }
-.singoloContatto{
+
+.singoloContatto {
     display: flex;
     height: 5em;
     align-items: center;
@@ -136,16 +163,19 @@ main{
     padding-left: 1em;
     border-block: 1px solid rgb(249, 249, 249);
 }
-#listaChat > :last-child > :last-child{
+
+#listaChat> :last-child> :last-child {
     border-bottom: none;
 }
-#listaChat > :last-child > :first-child{
+
+#listaChat> :last-child> :first-child {
     border-top: none;
 }
+
 /* LISTA CON TUTTE LE CHAT */
 
 /* BARRA CHE CONTIENE LE INFORMAZIONI DEL DESTINATAIO */
-#barraDestinatario{
+#barraDestinatario {
     grid-column: listaChat / fineCol;
     grid-row: inizioRow / barraFunzionale;
     background-color: rgb(234, 234, 234);
@@ -153,81 +183,107 @@ main{
     align-items: center;
     justify-content: space-between;
 }
-#barraDestinatario > :first-child{
+
+#barraDestinatario> :first-child {
     display: flex;
     align-items: center;
     padding-left: .8em;
 }
-#barraDestinatario > :first-child > :last-child{
+
+#barraDestinatario> :first-child> :last-child {
     display: flex;
     flex-direction: column;
     margin-left: .5em;
 }
-#barraDestinatario > :first-child > :last-child >:first-child{
+
+#barraDestinatario> :first-child> :last-child>:first-child {
     font-weight: bold;
 }
-#barraDestinatario > :first-child > :last-child >:last-child{
+
+#barraDestinatario> :first-child> :last-child>:last-child {
     color: rgb(100, 100, 100);
     font-size: .85em;
 }
+
 /* AREA CHE CONTIENE I MESSAGGI SCAMBIATI CON IL DESTINATARIO, LE CUI IMMAGINI SONO NELLA BARRA SOPRA */
-#chatAttuale{
+#chatAttuale {
     grid-column: listaChat / fineCol;
     grid-row: barraFunzionale / barraMessaggio;
     background: url('img/mine.jpg');
-    display: grid;
     padding: 3em 6em 1em 6em;
-    grid-template-columns: [iMD] calc(50% - 4.5em) [fMD] 9em [iMM] calc(50% - 4.5em) [fMM];
+    /* display: grid;
+    grid-template-columns: 1fr;
+    row-gap: .8em;
+     */
+    gap: .8em;
     overflow: auto;
-}
-/* CSS CHE SI OCCUPA DI TUTTE QUELLE CARATTERISTICHE IN COMUNE TRA I MESSAGGI, SIA QUELLI CHE INVIAMO, SIA QUELLI CHE RICEVIAMO */
-.messaggio{
-    border-radius: .50rem;
-    width: 100%;
-    height: 3.5em;
-    margin-bottom: .5em;
     display: flex;
-    align-items: center;
-    padding-left: 1em;
+    flex-direction: column;
+
 }
+
+/* CSS CHE SI OCCUPA DI TUTTE QUELLE CARATTERISTICHE IN COMUNE TRA I MESSAGGI, SIA QUELLI CHE INVIAMO, SIA QUELLI CHE RICEVIAMO */
+.messaggio {
+    border-radius: .50rem;
+    max-width: 45%;
+    max-height:min-content;
+    padding: .8em;
+}
+
+.messaggio> :first-child {
+    align-self: flex-start;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.messaggio> :last-child {
+    text-align: end;
+}
+
 /* CSS CHE SI OCCUPA DEI MESSAGGI CHE INVIAMO */
-.messaggioMittente{
+.messaggioMittente {
     background-color: rgb(213, 249, 186);
-    grid-column: iMM / fMM;
+    align-self: flex-end;
 }
+
 /* CSS CHE SI OCCUMA DEI MESSAGGI CHE RICEVIAMO */
-.messaggioDestinataio{
+.messaggioDestinataio {
     background-color: rgb(255, 255, 255);
-    grid-column: iMD / fMD ;
 }
+
 /* CSS CHE SI OCCUPA DELL'ORA CHE SI TROVA A LATO DEI MESSAGGI  */
-.messOra{
+.messOra {
     position: relative;
     left: 13.5em;
     top: 1em;
     font-size: small;
 }
+
 /* AREA CHE CONTIENE I MESSAGGI SCAMBIATI CON IL DESTINATARIO, LE CUI IMMAGINI SONO NELLA BARRA SOPRA */
 
 /* BARRA CHE CONTIENE INPUT PER INVIARE IL MESSAGGIO NELLA CHAT */
-#barraMessaggio{
+#barraMessaggio {
     grid-column: listaChat / fineCol;
     grid-row: barraMessaggio / fineRow;
     background-color: rgb(243, 238, 234);
     display: flex;
     align-items: center;
 }
-#barraMessaggio i{
+
+#barraMessaggio i {
     width: calc(100% / 12 * 1);
     text-align: center;
     font-size: 1.1rem;
     color: rgb(100, 100, 100);
 }
-#barraMessaggio input{
+
+#barraMessaggio input {
     width: calc(100% / 12 * 10);
     height: 3.5em;
     padding-left: 1em;
     border: none;
     border-radius: .5rem;
 }
+
 /* CSS PER IL MAIN E A TUTTO QUELLO CHE CONTIENE */

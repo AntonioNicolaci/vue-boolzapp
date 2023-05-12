@@ -51,17 +51,19 @@
                                 <span>{{contact.name}}</span>
                                 <span>{{ultimaChat(index)}}</span>
                             </div>
+                            <div class="oraUltimoAccesso">12:00</div>
                         </div>
                     </template>
                 </div>
                 <!-- QUESTO DIV SI CREA SOLO ED ESCLUSIVAMENTE QUANDO SI VA A SCRIVERE QUALCOSA NELLA BARRA DELLA RICERCA DELLE CHAT -->
-                <div v-else>
+                <div id="listaContatti" v-else>
                     <template v-for="(contact, index) in arrRicerca" :key="contact.name">
                         <div :id="[chatAttiva == index ? 'active' : '']" class="singoloContatto"
                             @click="chatAttiva = index">
                             <img :src="`${contact.avatar}`" :alt="`${contact.name}`" class="divImg">
-                            <div>
+                            <div class="nomeUltimaChat">
                                 <span>{{contact.name}}</span>
+                                <span>{{ultimaChat(index)}}</span>
                             </div>
                         </div>
                     </template>
@@ -72,7 +74,7 @@
                     <img :src="`${contacts[chatAttiva].avatar}`" :alt="`${contacts[chatAttiva].name}`">
                     <div>
                         <span>{{contacts[chatAttiva].name}}</span>
-                        <span></span>
+                        <span>Ultimo accesso oggi alle 12:00</span>
                     </div>
                 </div>
                 <div>

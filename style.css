@@ -157,6 +157,7 @@ main {
     gap: 1em;
     padding-left: 1em;
     border-block: 1px solid rgb(249, 249, 249);
+    position: relative;
 }
 
 #listaContatti {
@@ -180,9 +181,17 @@ main {
 }
 
 .nomeUltimaChat> :last-child {
-    font-weight: normal;
+    font-weight: lighter !important;
     color: rgb(100, 100, 100);
     font-size: .75em;
+}
+
+.oraUltimoAccesso{
+    color: rgb(100, 100, 100);
+    font-size: .75em;
+    position: absolute;
+    top: 15px;
+    right: 15px;
 }
 /* LISTA CON TUTTE LE CHAT */
 

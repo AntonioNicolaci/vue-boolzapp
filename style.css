@@ -82,14 +82,6 @@ main {
     flex-direction: column;
 }
 
-#listaChat> :last-child {
-    overflow: auto;
-}
-
-#listaChat> :last-child span {
-    font-weight: bold;
-}
-
 /* CSS CHE SI OCCUPA DELLA BARRA PER ATTIVARE LA NOTIFICA */
 #attivaNotifica {
     background-color: rgb(142, 218, 252);
@@ -153,7 +145,7 @@ main {
 
 /* CSS CHE SI OCCUPA DELLA BARRA CHE CONTIENE L'INPUT PER LA RICERCA DELLE CHAT */
 
-#listaChat #active {
+#listaContatti #active {
     background-color: rgb(233, 235, 235);
     border: none;
 }
@@ -167,14 +159,31 @@ main {
     border-block: 1px solid rgb(249, 249, 249);
 }
 
-#listaChat> :last-child> :last-child {
+#listaContatti {
+    overflow: auto;
+}
+
+#listaContatti span {
+    font-weight: bold;
+}
+#listaContatti> :last-child {
     border-bottom: none;
 }
 
-#listaChat> :last-child> :first-child {
+#listaContatti> :first-child {
     border-top: none;
 }
 
+.nomeUltimaChat {
+    display: flex;
+    flex-direction: column;
+}
+
+.nomeUltimaChat> :last-child {
+    font-weight: normal;
+    color: rgb(100, 100, 100);
+    font-size: .75em;
+}
 /* LISTA CON TUTTE LE CHAT */
 
 /* BARRA CHE CONTIENE LE INFORMAZIONI DEL DESTINATAIO */

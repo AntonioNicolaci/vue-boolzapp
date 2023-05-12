@@ -48,11 +48,13 @@
                             @click="chatAttiva = index">
                             <img :src="`${contact.avatar}`" :alt="`${contact.name}`" class="divImg">
                             <div>
-                                <span class="A">{{contact.name}}</span>
+                                <span>{{contact.name}}</span>
+                                <!-- <span v-if="index === contact.length"></span> -->
                             </div>
                         </div>
                     </template>
                 </div>
+                <!-- QUESTO DIV SI CREA SOLO ED ESCLUSIVAMENTE QUANDO SI VA A SCRIVERE QUALCOSA NELLA BARRA DELLA RICERCA DELLE CHAT -->
                 <div v-else>
                     <template v-for="(contact, index) in arrRicerca" :key="contact.name">
                         <div :id="[chatAttiva == index ? 'active' : '']" class="singoloContatto"
@@ -70,7 +72,7 @@
                     <img :src="`${contacts[chatAttiva].avatar}`" :alt="`${contacts[chatAttiva].name}`">
                     <div>
                         <span>{{contacts[chatAttiva].name}}</span>
-                        <span>Ultimo accesso Orario</span>
+                        <span></span>
                     </div>
                 </div>
                 <div>
@@ -84,7 +86,7 @@
                     <div
                         :class="['messaggio', mess.status == 'received' ? 'messaggioDestinataio' : 'messaggioMittente']">
                         <div class="messaggioMessaggio">{{mess.message}}</div>
-                        <div class="messaggioOra">getTimes</div>
+                        <div class="messaggioOra">{{formattamentoData(index, 'ora')}}:{{formattamentoData(index, 'minuto')}}</div>
                         <div class="messaggioTendina"
                         @click="dropDownFunction(index)">
                             <i class="bi bi-arrow-down-square-fill"></i>
@@ -93,16 +95,24 @@
                             <span>Message Info</span>
                             <span @click="cancello(index)">Delate Message</span>
                         </div>
-                    
                     </div>
-                    
                 </template>
             </div>
             <div id="chatAttuale" v-else>
-                <template v-for="mess in arrRicerca[chatAttiva].messages" :key="mess.date">
+                <template v-for="(mess, index) in contacts[chatAttiva].messages" :key="mess.date">
                     <div
                         :class="['messaggio', mess.status == 'received' ? 'messaggioDestinataio' : 'messaggioMittente']">
-                        {{mess.message}}</div>
+                        <div class="messaggioMessaggio">{{mess.message}}</div>
+                        <div class="messaggioOra">{{formattamentoData(index, 'ora')}}:{{formattamentoData(index, 'minuto')}}</div>
+                        <div class="messaggioTendina"
+                        @click="dropDownFunction(index)">
+                            <i class="bi bi-arrow-down-square-fill"></i>
+                        </div>
+                        <div v-show="dropDown === true && dropDownIndex === index" class="dropdown-content">
+                            <span>Message Info</span>
+                            <span @click="cancello(index)">Delate Message</span>
+                        </div>
+                    </div>
                 </template>
             </div>
             <div id="barraMessaggio">
@@ -115,7 +125,6 @@
     </main>
 
     <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
-    <script src="https://moment.github.io/luxon/global/luxon.js"></script>
     <script src="main.js"></script>
 </body>
 

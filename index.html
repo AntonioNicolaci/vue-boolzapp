@@ -80,12 +80,22 @@
                 </div>
             </div>
             <div id="chatAttuale" v-if="ricercaContatto === ''">
-                <template v-for="mess in contacts[chatAttiva].messages" :key="mess.date">
+                <template v-for="(mess, index) in contacts[chatAttiva].messages" :key="mess.date">
                     <div
                         :class="['messaggio', mess.status == 'received' ? 'messaggioDestinataio' : 'messaggioMittente']">
-                        <div>{{mess.message}}</div>
-                        <div>orario</div>
+                        <div class="messaggioMessaggio">{{mess.message}}</div>
+                        <div class="messaggioOra">getTimes</div>
+                        <div class="messaggioTendina"
+                        @click="dropDownFunction(index)">
+                            <i class="bi bi-arrow-down-square-fill"></i>
+                        </div>
+                        <div v-show="dropDown === true && dropDownIndex === index" class="dropdown-content">
+                            <span>Message Info</span>
+                            <span @click="cancello(index)">Delate Message</span>
+                        </div>
+                    
                     </div>
+                    
                 </template>
             </div>
             <div id="chatAttuale" v-else>
@@ -105,6 +115,7 @@
     </main>
 
     <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
+    <script src="https://moment.github.io/luxon/global/luxon.js"></script>
     <script src="main.js"></script>
 </body>
 

@@ -211,15 +211,10 @@ main {
     grid-row: barraFunzionale / barraMessaggio;
     background: url('img/mine.jpg');
     padding: 3em 6em 1em 6em;
-    /* display: grid;
-    grid-template-columns: 1fr;
-    row-gap: .8em;
-     */
     gap: .8em;
     overflow: auto;
     display: flex;
     flex-direction: column;
-
 }
 
 /* CSS CHE SI OCCUPA DI TUTTE QUELLE CARATTERISTICHE IN COMUNE TRA I MESSAGGI, SIA QUELLI CHE INVIAMO, SIA QUELLI CHE RICEVIAMO */
@@ -231,8 +226,6 @@ main {
 }
 
 .messaggio> :first-child {
-    align-self: flex-start;
-    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }

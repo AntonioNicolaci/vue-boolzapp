@@ -168,6 +168,8 @@ const boolZappApp = Vue.createApp({
             newMessage: '',
             ricercaContatto: '',
             arrRicerca: [],
+            dropDown: false,
+            dropDownIndex: '',
         }
     },
     methods: {
@@ -180,6 +182,18 @@ const boolZappApp = Vue.createApp({
                 }, 1000);
             }
         },
+        cancello(index) {
+            this.contacts[this.chatAttiva].messages.splice(index, 1);
+            this.dropDownFunction(index);
+        },
+        dropDownFunction(index){
+            this.dropDown = !this.dropDown;
+            if (this.dropDownIndex === ''){
+                this.dropDownIndex = index;
+            } else{
+                this.dropDownIndex = '';
+            }
+        }
     },
     watch: {
         ricercaContatto: function () {

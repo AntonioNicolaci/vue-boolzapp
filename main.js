@@ -1,6 +1,6 @@
 const boolZappApp = Vue.createApp({
     data() {
-        return{
+        return {
             contacts: [
                 {
                     name: 'Michele',
@@ -171,18 +171,18 @@ const boolZappApp = Vue.createApp({
         }
     },
     methods: {
-        addMessage(){
-            if(this.newMessage != ""){
-                this.contacts[this.chatAttiva].messages.push({"date": null, "message": this.newMessage, "status": 'sent'});
+        addMessage(chatAttiva) {
+            if (this.newMessage != "") {
+                this.contacts[chatAttiva].messages.push({ "date": null, "message": this.newMessage, "status": 'sent' });
                 this.newMessage = "";
                 setTimeout(() => {
-                    this.contacts[this.chatAttiva].messages.push({"date": null, "message": 'ok', "status": 'received'});
-                }, 1000);    
+                    this.contacts[chatAttiva].messages.push({ "date": null, "message": 'ok', "status": 'received' });
+                }, 1000);
             }
         },
     },
     watch: {
-        ricercaContatto: function(){
+        ricercaContatto: function () {
             this.arrRicerca = [];
             let nome2 = [];
             let y = 0;
@@ -195,11 +195,11 @@ const boolZappApp = Vue.createApp({
                     for (let i = 0; i < this.ricercaContatto.length; i++) {
                         nome3 += nome2[index2][i];
                     }
-                    if(nome3 == this.ricercaContatto){
+                    if (nome3 == this.ricercaContatto) {
                         this.arrRicerca[y] = this.contacts[index2];
                         y++;
                     }
-                    nome3 = '';  
+                    nome3 = '';
                 }
             }
             return this.arrRicerca;

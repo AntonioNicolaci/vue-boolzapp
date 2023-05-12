@@ -186,22 +186,21 @@ const boolZappApp = Vue.createApp({
             this.contacts[this.chatAttiva].messages.splice(index, 1);
             this.dropDownFunction(index);
         },
-        dropDownFunction(index){
+        dropDownFunction(index) {
             this.dropDown = !this.dropDown;
-            if (this.dropDownIndex === ''){
+            if (this.dropDownIndex === '') {
                 this.dropDownIndex = index;
-            } else{
+            } else {
                 this.dropDownIndex = '';
             }
         },
         formattamentoData(index, pezzo) {
-            // 10/01/2020 15:30:55
             let giorno = ''; mese = ''; anno = ''; ora = ''; minuto = ''; secondo = ''; Split1 = ''; Split2 = ''; Split3 = '';
             Split1 = this.contacts[this.chatAttiva].messages[index].date.split(" ");
             Split1.forEach((element, index) => {
-                if(index == 0) {
+                if (index == 0) {
                     Split2 = Split1[index].split("/")
-                } else if (index == 1){
+                } else if (index == 1) {
                     Split3 = Split1[index].split(":")
                 }
             });
@@ -231,7 +230,6 @@ const boolZappApp = Vue.createApp({
                         break;
                 }
             })
-
             switch (pezzo) {
                 case 'anno':
                     return anno;
@@ -244,14 +242,22 @@ const boolZappApp = Vue.createApp({
                 case 'minuto':
                     return minuto;
                 case 'secondo':
-                     if(secondo === 0){
+                    if (secondo === 0) {
                         return "00";
                     } else {
                         return secondo;
                     };
             }
-            
+
         },
+        ultimaChat(index) {
+            ultimoMess = this.contacts[index].messages.length;
+            if (this.contacts[index].messages[ultimoMess - 1].status === "received"){
+                return this.contacts[index].name + ": " + this.contacts[index].messages[ultimoMess - 1].message;
+            } else {
+                return "Sofia: " + this.contacts[index].messages[ultimoMess - 1].message;
+            }
+        }
     },
     watch: {
         ricercaContatto: function () {

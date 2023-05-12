@@ -193,7 +193,65 @@ const boolZappApp = Vue.createApp({
             } else{
                 this.dropDownIndex = '';
             }
-        }
+        },
+        formattamentoData(index, pezzo) {
+            // 10/01/2020 15:30:55
+            let giorno = ''; mese = ''; anno = ''; ora = ''; minuto = ''; secondo = ''; Split1 = ''; Split2 = ''; Split3 = '';
+            Split1 = this.contacts[this.chatAttiva].messages[index].date.split(" ");
+            Split1.forEach((element, index) => {
+                if(index == 0) {
+                    Split2 = Split1[index].split("/")
+                } else if (index == 1){
+                    Split3 = Split1[index].split(":")
+                }
+            });
+            Split2.forEach((element, index) => {
+                switch (index) {
+                    case 0:
+                        giorno = element;
+                        break;
+                    case 1:
+                        mese = element;
+                        break;
+                    case 2:
+                        anno = element;
+                        break;
+                }
+            });
+            Split3.forEach((element, index) => {
+                switch (index) {
+                    case 0:
+                        ora = element;
+                        break;
+                    case 1:
+                        minuto = element;
+                        break;
+                    case 2:
+                        secondo = element;
+                        break;
+                }
+            })
+
+            switch (pezzo) {
+                case 'anno':
+                    return anno;
+                case 'mese':
+                    return mese;
+                case 'giorno':
+                    return giorno;
+                case 'ora':
+                    return ora;
+                case 'minuto':
+                    return minuto;
+                case 'secondo':
+                     if(secondo === 0){
+                        return "00";
+                    } else {
+                        return secondo;
+                    };
+            }
+            
+        },
     },
     watch: {
         ricercaContatto: function () {
@@ -216,7 +274,6 @@ const boolZappApp = Vue.createApp({
                     nome3 = '';
                 }
             }
-            return this.arrRicerca;
         },
     },
 }).mount("#app")

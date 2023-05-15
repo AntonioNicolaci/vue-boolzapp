@@ -170,15 +170,21 @@ const boolZappApp = Vue.createApp({
             arrRicerca: [],
             dropDown: false,
             dropDownIndex: '',
+            dataCorrente: null,
+            dataFormattata: '',
+
         }
     },
     methods: {
         addMessage(chatAttiva) {
+            this.dataCorrente = dayjs();
+            this.dataFormattata = this.dataCorrente.format('DD/MM/YYYY HH:mm:ss');
+            console.log(this.dataFormattata);
             if (this.newMessage != "") {
-                this.contacts[chatAttiva].messages.push({ "date": null, "message": this.newMessage, "status": 'sent' });
+                this.contacts[chatAttiva].messages.push({ "date": this.dataFormattata, "message": this.newMessage, "status": 'sent' });
                 this.newMessage = "";
                 setTimeout(() => {
-                    this.contacts[chatAttiva].messages.push({ "date": null, "message": 'ok', "status": 'received' });
+                    this.contacts[chatAttiva].messages.push({ "date": this.dataFormattata, "message": 'ok', "status": 'received' });
                 }, 1000);
             }
         },
@@ -252,10 +258,10 @@ const boolZappApp = Vue.createApp({
         },
         ultimaChat(index) {
             ultimoMess = this.contacts[index].messages.length;
-            if (this.contacts[index].messages[ultimoMess - 1].status === "received"){
+            if (this.contacts[index].messages[ultimoMess - 1].status === "received") {
                 return this.contacts[index].name + ": " + this.contacts[index].messages[ultimoMess - 1].message;
             } else {
-                return "Sofia: " + this.contacts[index].messages[ultimoMess - 1].message;
+                return "Tu: " + this.contacts[index].messages[ultimoMess - 1].message;
             }
         }
     },

@@ -2,10 +2,10 @@
 <html lang="it">
 
 <head>
+    <title>Boolzapp</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boolzapp</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -65,6 +65,7 @@
                                 <span>{{contact.name}}</span>
                                 <span>{{ultimaChat(index)}}</span>
                             </div>
+
                         </div>
                     </template>
                 </div>
@@ -91,7 +92,7 @@
                         <div class="messaggioOra">{{formattamentoData(index, 'ora')}}:{{formattamentoData(index,
                             'minuto')}}</div>
                         <div class="messaggioTendina" @click="dropDownFunction(index)">
-                            <i class="bi bi-arrow-down-square-fill"></i>
+                            <i class="bi bi-chevron-down"></i>
                         </div>
                         <div v-show="dropDown === true && dropDownIndex === index" class="dropdown-content">
                             <span>Message Info</span>
@@ -101,14 +102,15 @@
                 </template>
             </div>
             <div id="chatAttuale" v-else>
-                <template v-for="(mess, index) in contacts[chatAttiva].messages" :key="mess.date">
+                <template v-for="(mess, index) in contacts[chatAttiva].messages"
+                    :key="`${mess.date}+${mess.message}+${index}`">
                     <div
                         :class="['messaggio', mess.status == 'received' ? 'messaggioDestinataio' : 'messaggioMittente']">
                         <div class="messaggioMessaggio">{{mess.message}}</div>
                         <div class="messaggioOra">{{formattamentoData(index, 'ora')}}:{{formattamentoData(index,
                             'minuto')}}</div>
                         <div class="messaggioTendina" @click="dropDownFunction(index)">
-                            <i class="bi bi-arrow-down-square-fill"></i>
+                            <i class="bi bi-chevron-down"></i>
                         </div>
                         <div v-show="dropDown === true && dropDownIndex === index" class="dropdown-content">
                             <span>Message Info</span>
@@ -127,6 +129,7 @@
     </main>
 
     <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
     <script src="main.js"></script>
 </body>
 

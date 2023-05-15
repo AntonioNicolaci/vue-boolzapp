@@ -19,9 +19,12 @@ input:focus-visible {
     box-shadow: 0px 0px 2px black;
 }
 
-i, .singoloContatto, input{
+i,
+.singoloContatto,
+input {
     cursor: pointer;
 }
+
 /* CSS COMUNE O COMPONENTI NON SPECIFICI */
 
 /* CSS PER IL MAIN E A TUTTO QUELLO CHE CONTIENE */
@@ -167,6 +170,7 @@ main {
 #listaContatti span {
     font-weight: bold;
 }
+
 #listaContatti> :last-child {
     border-bottom: none;
 }
@@ -186,13 +190,14 @@ main {
     font-size: .75em;
 }
 
-.oraUltimoAccesso{
+.oraUltimoAccesso {
     color: rgb(100, 100, 100);
     font-size: .75em;
     position: absolute;
     top: 15px;
     right: 15px;
 }
+
 /* LISTA CON TUTTE LE CHAT */
 
 /* BARRA CHE CONTIENE LE INFORMAZIONI DEL DESTINATAIO */
@@ -255,14 +260,23 @@ main {
     text-align: end;
 }
 
-.messaggioTendina .bi-arrow-down-square-fill{
+.messaggioTendina .bi-chevron-down {
     display: none;
     position: absolute;
-    right: 20px;
-    top: 20px;
+    right: 0px;
+    top: 0px;
+    padding: 15px 10px 15px 15px;
 }
 
-.messaggio:hover .messaggioTendina .bi-arrow-down-square-fill{
+.messaggioMittente .bi-chevron-down {
+    background-image: radial-gradient(circle, rgb(213, 249, 186), rgba(213, 249, 186, 0));
+}
+
+.messaggioDestinataio .bi-chevron-down {
+    background-image: radial-gradient(circle, rgb(255, 255, 255), rgba(255, 255, 255, 0));
+}
+
+.messaggio:hover .messaggioTendina .bi-chevron-down {
     display: block;
 }
 
@@ -277,10 +291,12 @@ main {
     top: calc(20px + 1em);
     z-index: 1;
     padding: .5em;
-  }
-.dropdown-content span{
+}
+
+.dropdown-content span {
     padding-block: .5em;
 }
+
 /* CSS CHE SI OCCUPA DEI MESSAGGI CHE INVIAMO */
 .messaggioMittente {
     background-color: rgb(213, 249, 186);

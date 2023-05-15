@@ -107,9 +107,8 @@
                     <div
                         :class="['messaggio', mess.status == 'received' ? 'messaggioDestinataio' : 'messaggioMittente']">
                         <div class="messaggioMessaggio">{{mess.message}}</div>
-                        <div class="messaggioOra">{{formattamentoData(index, 'ora')}}:{{formattamentoData(index,
-                            'minuto')}}</div>
-                        <div class="messaggioTendina" @click="dropDownFunction(index)">
+                        <div class="messaggioOra">{{formattamentoData(index, 'ora')}}:{{formattamentoData(index, 'minuto')}}</div>
+                        <div class="messaggioTendina" @click="dropDownSingleMesage(index)">
                             <i class="bi bi-chevron-down"></i>
                         </div>
                         <div v-show="dropDown === true && dropDownIndex === index" class="dropdown-content">
@@ -120,7 +119,12 @@
                 </template>
             </div>
             <div id="barraMessaggio">
-                <i class="bi bi-emoji-laughing"></i>
+                <i class="bi bi-emoji-laughing" @click="dropDownFunction('a')"></i>
+                <div v-show="dropDown === true && dropDownIndex === 'a'" class="dropdown-content">
+                    <template v-for="(emoticon, index) in emoticons">
+                        <span @click="addEmoji(index)">{{emoticons[index]}}</span>
+                    </template>
+                </div>
                 <input type="text" placeholder="Scrivi un messaggio" @keyup.enter="addMessage(chatAttiva)"
                     v-model="newMessage">
                 <i class="bi bi-mic-fill"></i>

@@ -21,7 +21,8 @@ input:focus-visible {
 
 i,
 .singoloContatto,
-input {
+input,
+#barraMessaggio .dropdown-content span {
     cursor: pointer;
 }
 
